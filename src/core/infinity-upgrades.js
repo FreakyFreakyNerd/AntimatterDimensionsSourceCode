@@ -1,5 +1,6 @@
 import { GameMechanicState, SetPurchasableMechanicState } from "./game-mechanics";
 import { DC } from "./constants";
+import { Achievement } from "./globals";
 
 class ChargedInfinityUpgradeState extends GameMechanicState {
   constructor(config, upgrade) {
@@ -87,6 +88,7 @@ export function totalIPMult() {
   let ipMult = DC.D1
     .times(ShopPurchase.IPPurchases.currentMult)
     .timesEffectsOf(
+      Achievement(26),
       TimeStudy(41),
       TimeStudy(51),
       TimeStudy(141),

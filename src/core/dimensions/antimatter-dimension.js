@@ -1,4 +1,5 @@
 import { DC } from "../constants";
+import { Achievement } from "../globals";
 
 import { DimensionState } from "./dimension";
 
@@ -100,6 +101,9 @@ function applyNDMultipliers(mult, tier) {
 
   multiplier = multiplier.times(Decimal.pow(AntimatterDimensions.buyTenMultiplier, buy10Value));
   multiplier = multiplier.times(DimBoost.multiplierToNDTier(tier));
+  
+  // First Row of achievements being added
+  multiplier = multiplier.timesEffectOf(Achievement(11 + tier));
 
   let infinitiedMult = DC.D1.timesEffectsOf(
     AntimatterDimension(tier).infinityUpgrade,

@@ -12,24 +12,32 @@ export const normalAchievements = [
     name: "100 antimatter is a lot",
     description: "Buy a 2nd Antimatter Dimension.",
     checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+    get reward() { return `1nd Antimatter Dimension are ${formatPercents(2, 2)} stronger.`; },
+    effect: 2,
   },
   {
     id: 13,
     name: "Half life 3 CONFIRMED",
     description: "Buy a 3rd Antimatter Dimension.",
     checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+    get reward() { return `2nd Antimatter Dimension are ${formatPercents(2, 2)} stronger.`; },
+    effect: 2,
   },
   {
     id: 14,
     name: "L4D: Left 4 Dimensions",
     description: "Buy a 4th Antimatter Dimension.",
     checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+    get reward() { return `3rd Antimatter Dimension are ${formatPercents(2, 2)} stronger.`; },
+    effect: 2,
   },
   {
     id: 15,
     name: "5 Dimension Antimatter Punch",
     description: "Buy a 5th Antimatter Dimension.",
     checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+    get reward() { return `4th Antimatter Dimension are ${formatPercents(2, 2)} stronger.`; },
+    effect: 2,
   },
   {
     id: 16,
@@ -40,12 +48,16 @@ export const normalAchievements = [
         : "Buy a 6th Antimatter Dimension.";
     },
     checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+    get reward() { return `5th Antimatter Dimension are ${formatPercents(2, 2)} stronger.`; },
+    effect: 2,
   },
   {
     id: 17,
     name: "Not a luck related achievement",
     description: "Buy a 7th Antimatter Dimension.",
     checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+    get reward() { return `6th Antimatter Dimension are ${formatPercents(2, 2)} stronger.`; },
+    effect: 2,
   },
   {
     id: 18,
@@ -55,7 +67,19 @@ export const normalAchievements = [
         ? "Buy an 8th Antimatter Dimension (don't get used to it)"
         : "Buy an 8th Antimatter Dimension.";
     },
+    get reward() { return `7th Antimatter Dimension are ${formatPercents(2)} stronger.`; },
+    effect: 2,
     checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+  },
+  {
+    id: 19,
+    name: "You got past The Big Wall",
+    description: "Buy an Antimatter Galaxy.",
+    checkRequirement: () => true,
+    checkEvent: GAME_EVENT.GALAXY_RESET_BEFORE,
+    get reward() { return `8th Antimatter Dimension multiplier based on Galaxies`; },
+    effect: () => Math.pow(effectiveBaseGalaxies() + 2, 2),
+    formatEffect: value => `${formatX(value, 2)}`
   },
   {
     id: 21,
@@ -97,10 +121,12 @@ export const normalAchievements = [
   },
   {
     id: 26,
-    name: "You got past The Big Wall",
-    description: "Buy an Antimatter Galaxy.",
-    checkRequirement: () => true,
-    checkEvent: GAME_EVENT.GALAXY_RESET_BEFORE
+    name: "Infinity Time",
+    description: "Infinity 250 times.",
+    get reward() {return `${formatX(DC.D4)} Infinity Point gain.`},
+    checkRequirement: () => player.infinities >= 250,
+    effect: 4,
+    checkEvent: GAME_EVENT.BIG_CRUNCH_AFTER
   },
   {
     id: 27,
@@ -119,6 +145,12 @@ export const normalAchievements = [
     checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
     get reward() { return `1st Antimatter Dimensions are ${formatPercents(0.1)} stronger.`; },
     effect: 1.1
+  },
+  {
+    id: 29,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
   },
   {
     id: 31,
@@ -198,6 +230,12 @@ export const normalAchievements = [
     },
     checkRequirement: () => player.requirementChecks.infinity.noSacrifice,
     checkEvent: GAME_EVENT.GALAXY_RESET_BEFORE
+  },
+  {
+    id: 39,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
   },
   {
     id: 41,
@@ -287,6 +325,12 @@ export const normalAchievements = [
     effect: 1.1
   },
   {
+    id: 49,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+  },
+  {
     id: 51,
     name: "Limit Break",
     description: "Break Infinity.",
@@ -372,6 +416,12 @@ export const normalAchievements = [
     effect: 1.01
   },
   {
+    id: 59,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+  },
+  {
     id: 61,
     name: "Bulked Up",
     get description() {
@@ -446,6 +496,12 @@ export const normalAchievements = [
     checkEvent: GAME_EVENT.BIG_CRUNCH_BEFORE,
     get reward() { return `1st Antimatter Dimensions are ${formatPercents(0.5)} stronger.`; },
     effect: 1.5
+  },
+  {
+    id: 69,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
   },
   {
     id: 71,
@@ -531,6 +587,12 @@ export const normalAchievements = [
     effect: 5e25
   },
   {
+    id: 79,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+  },
+  {
     id: 81,
     name: "Game Design Is My Passion",
     get description() { return `Beat Infinity Challenge 5 in ${formatInt(15)} seconds or less.`; },
@@ -609,6 +671,12 @@ export const normalAchievements = [
       ${Sacrifice.getSacrificeDescription({ "Achievement32": true, "Achievement57": true, "Achievement88": true })}`;
     },
     effect: 0.1
+  },
+  {
+    id: 89,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
   },
   {
     id: 91,
@@ -692,6 +760,12 @@ export const normalAchievements = [
     checkEvent: GAME_EVENT.GAME_TICK_AFTER
   },
   {
+    id: 99,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+  },
+  {
     id: 101,
     name: "8 nobody got time for that",
     description: "Eternity without buying Antimatter Dimensions 1-7.",
@@ -755,6 +829,12 @@ export const normalAchievements = [
     get description() { return `Eternity with exactly ${formatInt(9)} Replicanti.`; },
     checkRequirement: () => Replicanti.amount.round().eq(9),
     checkEvent: GAME_EVENT.ETERNITY_RESET_BEFORE
+  },
+  {
+    id: 109,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
   },
   {
     id: 111,
@@ -842,6 +922,12 @@ export const normalAchievements = [
     reward: "Dimensional Sacrifice doesn't reset your Antimatter Dimensions.",
   },
   {
+    id: 119,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+  },
+  {
     id: 121,
     name: "Can you get infinite IP?",
     get description() { return `Reach ${formatPostBreak("1e30008")} Infinity Points.`; },
@@ -922,6 +1008,12 @@ export const normalAchievements = [
     reward: "Time Dimensions are multiplied by the number of Time Studies you have.",
     effect: () => Math.max(player.timestudy.studies.length, 1),
     formatEffect: value => `${formatX(value)}`
+  },
+  {
+    id: 129,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
   },
   {
     id: 131,
@@ -1013,6 +1105,12 @@ export const normalAchievements = [
     reward: "Removes the downsides from Time Study 131 and 133 in the Active and Idle Time Study paths."
   },
   {
+    id: 139,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+  },
+  {
     id: 141,
     name: "Snap back to reality",
     description: "Make a new Reality.",
@@ -1100,6 +1198,12 @@ export const normalAchievements = [
     formatEffect: value => `+${formatInt(value)}`
   },
   {
+    id: 149,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+  },
+  {
     id: 151,
     name: "You really didn't need it anyway",
     get description() {
@@ -1169,6 +1273,12 @@ export const normalAchievements = [
     checkEvent: GAME_EVENT.BLACK_HOLE_UPGRADE_BOUGHT,
     get reward() { return `Black Hole power increased by ${formatPercents(0.1)}.`; },
     effect: 1.1
+  },
+  {
+    id: 159,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
   },
   {
     id: 161,
@@ -1243,6 +1353,12 @@ export const normalAchievements = [
     effect: 1.1
   },
   {
+    id: 169,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
+  },
+  {
     id: 171,
     name: "The god is delighted",
     description: "Sacrifice every sacrificable Glyph type at least once.",
@@ -1308,6 +1424,12 @@ export const normalAchievements = [
     checkEvent: GAME_EVENT.GALAXY_RESET_AFTER,
     get reward() { return `All Galaxies are ${formatPercents(0.01)} stronger.`; },
     effect: 1.01
+  },
+  {
+    id: 179,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
   },
   {
     id: 181,
@@ -1376,5 +1498,11 @@ export const normalAchievements = [
     description: "Beat the game.",
     checkRequirement: () => GameEnd.endState > END_STATE_MARKERS.GAME_END && !GameEnd.removeAdditionalEnd,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER
+  },
+  {
+    id: 189,
+    name: "PLACEHOLDER",
+    description: "PLACEHOLDER",
+    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
   },
 ];

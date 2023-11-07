@@ -127,7 +127,7 @@ export const Achievements = {
 
   rows: (start, count) => Array.range(start, count).map(Achievements.row),
 
-  row: row => Array.range(row * 10 + 1, 8).map(Achievement),
+  row: row => Array.range(row * 10 + 1, 9).map(Achievement),
 
   get effectiveCount() {
     const unlockedAchievements = Achievements.all.countWhere(a => a.isUnlocked);

@@ -1,3 +1,5 @@
+import { Achievement } from "./globals";
+
 export const GALAXY_TYPE = {
   NORMAL: 0,
   DISTANT: 1,
@@ -122,6 +124,7 @@ export class Galaxy {
 function galaxyReset() {
   EventHub.dispatch(GAME_EVENT.GALAXY_RESET_BEFORE);
   player.galaxies++;
+  Achievement(19).unlock()
   if (!Achievement(143).isUnlocked || (Pelle.isDoomed && !PelleUpgrade.galaxyNoResetDimboost.canBeApplied)) {
     player.dimensionBoosts = 0;
   }
